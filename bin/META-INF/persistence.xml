@@ -1,0 +1,48 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+        version="2.0">
+    <persistence-unit name="leiturinha">
+     	<!-- provedor/implementacao do JPA -->
+      <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+      <!-- entidade mapeada -->
+      <class>package com.projeto.leiturinha.model.Professor</class>
+      <class>package com.projeto.leiturinha.model.Material</class>
+       <class>package com.projeto.leiturinha.model.Quiz</class>
+      <properties>
+        <!-- dados da conexao -->
+        
+       <!--  <property name="javax.persistence.jdbc.driver"
+            value="com.microsoft.sqlserver.jdbc.SQLServerDriver" /> -->
+            
+        <property name="javax.persistence.jdbc.driver"
+            value="com.mysql.cj.jdbc.Driver" />
+            
+       <!--   <property name="javax.persistence.jdbc.url"
+            value="jdbc:sqlserver://localhost:1433;databaseName=agencia_db;user=sa;password=cr3314;encrypt=true;trustServerCertificate=true" /> -->
+            
+        <property name="javax.persistence.jdbc.url"
+            value="jdbc:mysql://localhost:3306/agencia_db?useTimezone=true;serverTimezone=UTC"/>
+        <property name="javax.persistence.jdbc.user"
+            value="user2" />
+        <property name="javax.persistence.jdbc.password"
+            value="cr3314" /> 
+
+        <!--  propriedades do hibernate -->
+        
+     <!--    <property name="hibernate.dialect"
+            value="org.hibernate.dialect.SQLServerDialect" /> -->
+            
+        <property name="hibernate.dialect"
+            value="org.hibernate.dialect.MySQL8Dialect" />
+        <property name="hibernate.show_sql" value="true" />
+        <property name="hibernate.format_sql" value="true" />
+
+        <!--  atualiza o banco, gera as tabelas se for preciso -->
+        
+        <property name="hibernate.hbm2ddl.auto" value="update" />
+        
+      </properties>
+    </persistence-unit>
+</persistence>
