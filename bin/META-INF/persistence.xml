@@ -26,9 +26,9 @@
         <property name="javax.persistence.jdbc.url"
             value="jdbc:mysql://localhost:3306/agencia_db?useTimezone=true;serverTimezone=UTC"/>
         <property name="javax.persistence.jdbc.user"
-            value="root" />
+            value="user2" />
         <property name="javax.persistence.jdbc.password"
-            value="123456789" />
+            value="cr3314" />
         
         <!--  user original: user2 ; password original: cr3314 --> 
 
