@@ -30,18 +30,22 @@ public class Material {
 	
 	private String conteudo;
 	
-	@Temporal(TemporalType.TIMESTAMP) //definir padrão data e hora
+	@Temporal(TemporalType.TIMESTAMP) //definir padrï¿½o data e hora
 	private Date dataCriacao;
 	
 	@Column(name = "imagem_conteudo")
 	private Blob imagemConteudo;
 	
-	@ManyToOne() //vários materiais para um professor
+	@ManyToOne() //vï¿½rios materiais para um professor
 	private Professor professor;
 	
 	@Cascade(CascadeType.DELETE)
 	@OneToMany(mappedBy = "material")
 	private List<Quiz> quizzes;
+	
+	@Cascade (CascadeType.DELETE)
+	@OneToMany(mappedBy = "material")
+	private List<ComentarioMaterial> comentarioMateriail;
 	
 	public Material() {
 		
@@ -119,8 +123,8 @@ public class Material {
 	
 	@Override
 	public String toString() {
-		return "{ título = " + this.titulo +
-				" conteúdo = " + this.conteudo +
+		return "{ tï¿½tulo = " + this.titulo +
+				" conteï¿½do = " + this.conteudo +
 				" }";
 	}
 	

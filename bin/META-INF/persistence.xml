@@ -10,6 +10,7 @@
       <class>package com.projeto.leiturinha.model.Professor</class>
       <class>package com.projeto.leiturinha.model.Material</class>
        <class>package com.projeto.leiturinha.model.Quiz</class>
+       <class>package com.projeto.leiturinha.model.ComentarioMaterial</class>
       <properties>
         <!-- dados da conexao -->
         
@@ -25,9 +26,11 @@
         <property name="javax.persistence.jdbc.url"
             value="jdbc:mysql://localhost:3306/agencia_db?useTimezone=true;serverTimezone=UTC"/>
         <property name="javax.persistence.jdbc.user"
-            value="user2" />
+            value="root" />
         <property name="javax.persistence.jdbc.password"
-            value="cr3314" /> 
+            value="123456789" />
+        
+        <!--  user original: user2 ; password original: cr3314 --> 
 
         <!--  propriedades do hibernate -->
         
