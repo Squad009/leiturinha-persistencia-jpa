@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 
 import com.projeto.leiturinha.controllers.ComentarioMaterialController;
 import com.projeto.leiturinha.dao.ComentarioMaterialDAO;
+import com.projeto.leiturinha.dao.MaterialDAO;
 import com.projeto.leiturinha.utils.JPAUtil;
 import com.projeto.leiturinha.utils.ViewUtil;
 
@@ -18,7 +19,8 @@ public class ComentarioMaterialTeste {
 		
 		EntityManager em = JPAUtil.getEntityManager();
 		ComentarioMaterialDAO dao = new ComentarioMaterialDAO(em);
-		ComentarioMaterialController controller = new ComentarioMaterialController(dao);
+		MaterialDAO materialDAO = new MaterialDAO(em);
+		ComentarioMaterialController controller = new ComentarioMaterialController(dao, materialDAO);
 		
 		do {
 			
@@ -33,15 +35,16 @@ public class ComentarioMaterialTeste {
 			String autor = sc.nextLine();
 			System.out.println("Seu comentario");
 			String mensagem = sc.nextLine();
+			System.out.println("Id do material");
+			Integer id_material = Integer.parseInt(sc.nextLine());
 			
-			controller.salva(autor, mensagem);
+			controller.salva(autor, mensagem, id_material);
 			break;
 			
 		case 2:
 			em.getTransaction().begin();
 			System.out.println("Informe um id válido:");
 			int id = Integer.parseInt(sc.nextLine());
-			em.getTransaction().begin();
 			System.out.println("Seu nome:");
 			String novoAutor = sc.nextLine();
 			System.out.println("Seu comentario");

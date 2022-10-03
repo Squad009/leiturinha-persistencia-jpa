@@ -28,27 +28,72 @@ public class ComentarioMaterial {
 	@ManyToOne() //o mesmo material pode ter vários comentários
 	private Material material;
 	
-	public ComentarioMaterial(){
+	public ComentarioMaterial() {
 		
 	}
+	
 
-	public ComentarioMaterial(String autor, String mensagem) {
+	public ComentarioMaterial(String autor, String mensagem, Material material) {
 		
 		this.autor = autor;
 		this.mensagem = mensagem;
+		this.material = material;
 		this.dataHoraMensagem = Calendar.getInstance().getTime();
 	}
 	
+	
+
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Date getDataHoraMensagem() {
+		return dataHoraMensagem;
+	}
+
+	public void setDataHoraMensagem(Date dataHoraMensagem) {
+		this.dataHoraMensagem = dataHoraMensagem;
+	}
+
+	public Material getMaterial() {
+		return material;
+	}
+
+	public void setMaterial(Material material) {
+		this.material = material;
+	}
+
+	public String getAutor() {
+		return autor;
+	}
 	
 	public void setAutor(String autor) {
 		this.autor = autor;
 		
 	}
+	
+	public String getMensagem() {
+		return mensagem;
+	}	
 
 	public void setMensagem(String mensagem) {
 		this.mensagem = mensagem;
 		
 	}
+	
+
+	@Override
+	public String toString() {
+		return "{autor= " + this.autor + ", mensagem =" + this.mensagem +",data do comentario = "+ this.dataHoraMensagem + "}";
+	}
+
+	
+	
 
 	
 

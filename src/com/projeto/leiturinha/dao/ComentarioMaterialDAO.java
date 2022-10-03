@@ -31,15 +31,16 @@ private EntityManager em;
 		em.getTransaction().commit();
 	}
 	
-	public List<ComentarioMaterial> listaComentarioMaterial() {
+	public List<ComentarioMaterial> listaComentariosMaterial() {
 		TypedQuery<ComentarioMaterial> query = em.createQuery("from ComentarioMaterial", ComentarioMaterial.class);
-		List<ComentarioMaterial> comentariosMaterial = query.getResultList();
-		return comentariosMaterial;
+		List<ComentarioMaterial> comentariosMateriais = query.getResultList();
+		return comentariosMateriais;
 	}
 
 	public ComentarioMaterial buscaPorId(Integer id) {
 		ComentarioMaterial comentarioMaterial = em.find(ComentarioMaterial.class, id);
 	    return comentarioMaterial;
 	}
+
 
 }
