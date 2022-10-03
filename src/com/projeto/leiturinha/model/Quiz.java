@@ -43,7 +43,7 @@ public class Quiz {
 	@Column(name = "opcao_correta")
 	private String opcaoCorreta;
 	
-	//@JoinColumn(unique = true) garante que só pertencerá a um registro
+	//@JoinColumn(unique = true) garante que sï¿½ pertencerï¿½ a um registro
 	@ManyToOne
 	private Material material;
 	
@@ -145,7 +145,6 @@ public class Quiz {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return "{ id: " + this.id +
 				"/ enunciado: " + this.enunciado +
 				"/ opcao correta: " + this.opcaoCorreta +

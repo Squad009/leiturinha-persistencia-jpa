@@ -43,7 +43,7 @@ public class QuizController {
 
 	public void remove(Integer idParaExcluir) {
 		dao.remove(idParaExcluir);
-		System.out.println("Quiz excluído com êxito");
+		System.out.println("Quiz excluï¿½do com ï¿½xito");
 	}
 	
 	public void listaQuizzes() {
