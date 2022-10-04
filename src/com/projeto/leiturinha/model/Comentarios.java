@@ -17,8 +17,8 @@ import com.projeto.leiturinha.utils.DateUtil;
 @Entity
 public class Comentarios {
    
-	
-	@Id
+	   
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
@@ -107,7 +107,8 @@ public class Comentarios {
 	public String toString() {
 		return "autor = " + this.autor +
 				" mensagem = " + this.mensagem +  
-				"  getDataFormatada = " + this.getDataFormatada();
+				"  getDataFormatada = " + this.getDataFormatada() +
+				" teste";
 				
 	}
 	
