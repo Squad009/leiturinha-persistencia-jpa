@@ -1,5 +1,7 @@
 package com.projeto.leiturinha.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
 public class Conto {
@@ -35,6 +41,10 @@ public class Conto {
 	
 	@Column(name = "total_avaliadores")
 	private double totalAvaliadores;
+	
+	@Cascade(CascadeType.DELETE)
+	@OneToMany(mappedBy = "conto")
+	private List<Comentarios> comentarios;
 	
 	
 	public Conto() {

@@ -41,6 +41,7 @@ public class ContoDAO {
 
 	public Conto buscaPorId(Integer id) {
 		Conto conto = em.find(Conto.class, id);
+		System.out.println(conto);
 	    return conto;
 	}
 

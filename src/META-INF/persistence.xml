@@ -23,11 +23,11 @@
             value="jdbc:sqlserver://localhost:1433;databaseName=agencia_db;user=sa;password=cr3314;encrypt=true;trustServerCertificate=true" /> -->
             
         <property name="javax.persistence.jdbc.url"
-            value="jdbc:mysql://localhost:3306/agencia_db?useTimezone=true;serverTimezone=UTC"/>
+            value="jdbc:mysql://localhost:3306/comentarios_db?useTimezone=true;serverTimezone=UTC"/>
         <property name="javax.persistence.jdbc.user"
-            value="user2" />
+            value="root" />
         <property name="javax.persistence.jdbc.password"
-            value="cr3314" /> 
+            value="12345678" /> 
 
         <!--  propriedades do hibernate -->
         
