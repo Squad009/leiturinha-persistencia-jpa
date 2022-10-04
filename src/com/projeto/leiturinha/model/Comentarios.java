@@ -8,8 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.projeto.leiturinha.utils.DateUtil;
 
 @Entity
 public class Comentarios {
@@ -19,6 +22,7 @@ public class Comentarios {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+    @ManyToOne
 	private Integer id_conto;
 	
 	@Column
@@ -27,8 +31,14 @@ public class Comentarios {
 	@Column
 	private String mensagem;
 	
+	@Column(name = "data_hora_msg")
 	@Temporal(TemporalType.TIMESTAMP) //definir padr�o data e hora
+	
 	private Date data_hora_msg;
+	
+	
+	
+	public Comentarios () {}
 	
 
 	public Comentarios(String autor, String mensagem) {
@@ -88,11 +98,16 @@ public class Comentarios {
 		this.data_hora_msg = data_hora_msg;
 	}
 	
+	public String getDataFormatada() {
+		return DateUtil.fullDateToString(data_hora_msg);
+	}
+	
 	@Override
 	public String toString() {
-		return "{ autor = " + this.autor +
-				" mensagem = " + this.mensagem +
-				" }";
+		return "autor = " + this.autor +
+				" mensagem = " + this.mensagem +  
+				"  getDataFormatada = " + this.getDataFormatada();
+				
 	}
 	
 	
