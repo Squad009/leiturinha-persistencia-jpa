@@ -4,27 +4,27 @@ import java.util.Scanner;
 
 import javax.persistence.EntityManager;
 
-import com.projeto.leiturinha.controllers.MaterialController;
-import com.projeto.leiturinha.dao.MaterialDAO;
-import com.projeto.leiturinha.dao.ProfessorDAO;
+import com.projeto.leiturinha.controllers.ContoController;
+import com.projeto.leiturinha.dao.ContoDAO;
+import com.projeto.leiturinha.dao.EstudanteDAO;
 import com.projeto.leiturinha.utils.JPAUtil;
 import com.projeto.leiturinha.utils.ViewUtil;
 
-public class MaterialTest {
-	
+public class ContoTeste {
+
 	public static void main(String[] args) {
- 
+		 
 		Scanner sc = new Scanner(System.in);
 		int opcao;
 		
 		EntityManager em = JPAUtil.getEntityManager();
-		MaterialDAO dao = new MaterialDAO(em);
-		ProfessorDAO professorDAO = new ProfessorDAO(em);
-		MaterialController controller = new MaterialController(dao, professorDAO);
+		ContoDAO dao = new ContoDAO(em);
+		EstudanteDAO estudanteDAO = new EstudanteDAO(em);
+		ContoController controller = new ContoController(dao, estudanteDAO);
 		
 		do {
 			
-			ViewUtil.introView("CRUD Material");
+			ViewUtil.introView("CRUD Conto");
 			opcao = Integer.parseInt(sc.nextLine());
 			
 		switch(opcao) {
@@ -35,10 +35,14 @@ public class MaterialTest {
 				String titulo = sc.nextLine();
 				System.out.println("Conteudo:");
 				String conteudo = sc.nextLine();
-				System.out.println("Id do professor:");
-				Integer id_professor = Integer.parseInt(sc.nextLine());
+				System.out.println("Categoria:");
+				String categoria = sc.nextLine();
+				System.out.println("Imagem de capa:");
+				String imagemCapa = sc.nextLine();
+				System.out.println("Id do estudante:");
+				Integer id_estudante = Integer.parseInt(sc.nextLine());
 				
-				controller.salva(titulo, conteudo, id_professor);
+				controller.salva(titulo, conteudo, categoria, id_estudante, imagemCapa);;
 				break;
 				
 			case 2:
@@ -49,21 +53,22 @@ public class MaterialTest {
 				String novoTitulo = sc.nextLine();
 				System.out.println("Conteudo:");
 				String novoConteudo = sc.nextLine();
-				
-				controller.altera(id, novoTitulo, novoConteudo);
+				System.out.println("Imagem :");
+				String novaImagem = sc.nextLine();
+				controller.altera(id, novoTitulo, novoConteudo, novaImagem);
 				break;
 				
 			case 3:
 				em.getTransaction().begin();
-				System.out.println("Informe um id válido para excluir um material");
+				System.out.println("Informe um id válido para excluir um conto");
 				int idParaExcluir = Integer.parseInt(sc.nextLine());
 				
 				controller.remove(idParaExcluir);
 				break;
 				
 			case 4:
-				System.out.println("Lista de materiais cadastrados");
-				controller.listaMateriais();
+				System.out.println("Lista de contos cadastrados");
+				controller.listaContos();
 				break;
 			
 			case 5:
@@ -81,4 +86,3 @@ public class MaterialTest {
 	
 	}
 }
-	
