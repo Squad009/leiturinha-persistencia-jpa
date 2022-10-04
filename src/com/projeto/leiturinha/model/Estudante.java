@@ -1,18 +1,25 @@
 package com.projeto.leiturinha.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.projeto.leiturinha.utils.DateUtil;
 
 @Entity
 public class Estudante {
 
-	@Id // define como chave primaria
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // incrementar automaticamente
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer id;
 
-	private String dataNascimento;
+	@Temporal(TemporalType.DATE)
+	private Date dataNascimento;
 	private String nome;
 	private String email;
 	private String senha;
@@ -21,8 +28,8 @@ public class Estudante {
 		
 	}
 
-	public Estudante(String dataNascimento, String nome, String email, String senha) {
-		super();
+	public Estudante(Date dataNascimento, String nome, String email, String senha) {
+
 		this.dataNascimento = dataNascimento;
 		this.nome = nome;
 		this.email = email;
@@ -38,11 +45,11 @@ public class Estudante {
 		this.id = id;
 	}
 
-	public String getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(String dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
@@ -70,9 +77,12 @@ public class Estudante {
 		this.senha = senha;
 	}
 
+	private String getDataFormatada() {
+		return DateUtil.dateToString(dataNascimento);
+	}
 	@Override
 	public String toString() {
-		return "Estudante [id=" + id + ", dataNascimento=" + dataNascimento + ", nome=" + nome + ", email=" + email
+		return "Estudante [id=" + id + ", dataNascimento=" + getDataFormatada() + ", nome=" + nome + ", email=" + email
 				+ ", senha=" + senha + "]";
 	}
 	

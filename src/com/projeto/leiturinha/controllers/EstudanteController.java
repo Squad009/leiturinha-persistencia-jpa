@@ -1,6 +1,7 @@
 package com.projeto.leiturinha.controllers;
 
 import java.sql.SQLException;
+import java.util.Date;
 
 import com.projeto.leiturinha.dao.EstudanteDAO;
 import com.projeto.leiturinha.model.Estudante;
@@ -13,13 +14,13 @@ public class EstudanteController {
 		this.dao = dao;
 	}
 	
-	public void salva(String dataNascimento, String nome, String email, String senha) {
+	public void salva(Date dataNascimento, String nome, String email, String senha) {
 		Estudante estudante = criaEstudante(dataNascimento, nome, email, senha);
 		dao.salva(estudante);
 		System.out.println("Estudante salvo com sucesso");
 	}
 
-	public void altera(Integer id, String dataNascimento, String nome, String email, String senha) {
+	public void altera(Integer id, Date dataNascimento, String nome, String email, String senha) {
 		Estudante estudante = criaEstudante(dataNascimento, nome, email, senha);
 		estudante.setId(id);
 		dao.altera(estudante);
@@ -41,7 +42,7 @@ public class EstudanteController {
 	   	.forEach(System.out::println);
 	}
 	
-	private Estudante criaEstudante(String dataNascimento, String nome, String email, String senha) {
+	private Estudante criaEstudante(Date dataNascimento, String nome, String email, String senha) {
 		return new Estudante(dataNascimento, nome, email, senha);
 	}
 	

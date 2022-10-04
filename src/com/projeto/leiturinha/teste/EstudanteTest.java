@@ -1,11 +1,13 @@
 package com.projeto.leiturinha.teste;
 
+import java.util.Date;
 import java.util.Scanner;
 
 import javax.persistence.EntityManager;
 
 import com.projeto.leiturinha.controllers.EstudanteController;
 import com.projeto.leiturinha.dao.EstudanteDAO;
+import com.projeto.leiturinha.utils.DateUtil;
 import com.projeto.leiturinha.utils.JPAUtil;
 import com.projeto.leiturinha.utils.ViewUtil;
 
@@ -30,7 +32,7 @@ public class EstudanteTest {
 					
 			case 1: 
 				em.getTransaction().begin();
-				System.out.println("Data de nascimento: ");
+				System.out.println("Data de nascimento no formato dd/MM/AAAA: ");
 				String dataNascimento = sc.nextLine();
 				System.out.println("Nome do estudante: ");
 				String nome = sc.nextLine();
@@ -39,7 +41,9 @@ public class EstudanteTest {
 				System.out.println("Senha:");
 				String senha = sc.nextLine();
 				
-				controller.salva(dataNascimento, nome, email, senha);
+				Date dataFormatada = DateUtil.stringToDate(dataNascimento);
+				
+				controller.salva(dataFormatada, nome, email, senha);
 				break;
 				
 			case 2:
@@ -47,7 +51,7 @@ public class EstudanteTest {
 				System.out.println("Informe um id valido:");
 				int id = Integer.parseInt(sc.nextLine());
 				System.out.println("Data nascimento: ");
-				String novoDataNascimento = sc.nextLine();
+				String novaDataNascimento = sc.nextLine();
 				System.out.println("Nome do estudante: ");
 				String novoNome = sc.nextLine();
 				System.out.println("Email:");
@@ -55,7 +59,9 @@ public class EstudanteTest {
 				System.out.println("Senha:");
 				String novaSenha = sc.nextLine();
 				
-				controller.altera(id, novoDataNascimento, novoNome, novoEmail, novaSenha);
+				Date dataFormatadaAlterada = DateUtil.stringToDate(novaDataNascimento);
+				
+				controller.altera(id, dataFormatadaAlterada, novoNome, novoEmail, novaSenha);
 				break;
 				
 			case 3:

@@ -17,12 +17,12 @@ public class EstudanteDAO {
 	}
 	
 	public void salva(Estudante estudante) {
-		em.persist(estudante); // equivalente ao insert
-		em.getTransaction().commit(); //conclui a transacao
+		em.persist(estudante); 
+		em.getTransaction().commit();
 	}
 	
 	public void altera(Estudante estudante) {
-		em.merge(estudante); //se o objeto ja existir, as alteracoes sao feitas com o metdo merge()
+		em.merge(estudante); 
 		em.getTransaction().commit();
 	}
 	public List<Estudante> listaEstudantes() {

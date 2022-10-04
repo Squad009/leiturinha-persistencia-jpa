@@ -17,6 +17,7 @@ public class ContoDAO {
 	}
 	
 	public void salva(Conto conto) {
+		em.getTransaction().begin();
 		em.persist(conto);
 		em.getTransaction().commit();
 	}

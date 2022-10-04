@@ -19,7 +19,6 @@ public class Conto {
 	private String titulo;
 	
 	@Column(name = "conteudo")
-	@Lob
 	private String conteudo;
 	
 	@ManyToOne

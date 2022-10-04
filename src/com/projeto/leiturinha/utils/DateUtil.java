@@ -23,7 +23,7 @@ public class DateUtil {
 		return calendar.getTime();
 	}
 
-	public static String DateToString(Date date) {
+	public static String dateToString(Date date) {
 		return new SimpleDateFormat(
 				DATE_PATTERN, 
 				new Locale("pt", "br")).format(date);
